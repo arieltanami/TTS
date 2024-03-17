@@ -1,7 +1,6 @@
-import subprocess
 import sys
+from pydub import AudioSegment
 
-subprocess.check_call([sys.executable, "-m", "pip", "install", "gtts"])
 
 from gtts import gTTS
 
@@ -20,11 +19,16 @@ def generate_speech(text: str, language: str, slow: bool, output_file: str) -> N
     """
     speech = gTTS(text=text, lang=language, slow=slow)
     speech.save(output_file)
+    
+    # Convert mono audio to stereo
+    audio = AudioSegment.from_file(output_file, format="mp3")
+    stereo_audio = audio.set_channels(2)
+    stereo_audio.export(output_file, format="mp3")
 
 
 # main
 language = 'en'
 text = "text here"
-output_file = "text.mp3"
+output_file = "output.mp3"
 
 generate_speech(text, language, slow=False, output_file=output_file)

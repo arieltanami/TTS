@@ -55,7 +55,7 @@ python3 -m venv venv
 
 ### Installing Dependencies
 
-This project requires the `gTTS` library. To install it, make sure you're in the virtual environment and run:
+This project requires the `gTTS` and `pydub` libraries. To install them, make sure you're in the virtual environment and run:
 
 ```bash
 pip install -r requirements.txt
@@ -67,7 +67,7 @@ To run the `TTS.py` script, follow these steps:
 
 1. Open the `TTS.py` file in a text editor.
 
-2. Replace the test `"text here"` with the text you want to convert to speech. For example:
+2. Replace the text `"text here"` with the text you want to convert to speech. For example:
 ```python
 text = "Hello, world!"
 ```
@@ -79,7 +79,7 @@ text = "Hello, world!"
 python TTS.py
 ```
 
-The script will generate an MP3 file named `text.mp3` (or whatever you named your output file) in the same directory. You can play this file to hear the text you entered spoken out loud.
+The script will generate an MP3 file named `text.mp3` (or whatever you named your output file) in the same directory. You can play this file to hear the text you entered spoken out loud. The MP3 file is in stereo format.
 
 ## Using the Script
 
